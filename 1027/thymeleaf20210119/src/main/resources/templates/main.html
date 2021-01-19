@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<body>
+    <div th:text="${message}">大家好</div>
+    <table>
+        <thead>
+        <tr>
+            <th >编号</th>
+            <th >用户名</th>
+            <th >密码</th>
+            <th >出生日期</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${userList}">
+            <td th:text="${user.id}">Oranges</td>
+            <td th:text="${user.userName}">Oranges</td>
+            <td th:text="${user.pwd}">Oranges</td>
+            <td th:text="${#dates.format(user.getBirthday(),'yyyy-MM-dd')}">Oranges</td>
+        </tr>
+        <tr th:object="${us}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{userName}"></td>
+            <td th:text="*{pwd}"></td>
+            <td th:text="*{#dates.format(birthday,'yyyy-MM-dd')}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
